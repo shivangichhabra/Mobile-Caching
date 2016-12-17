@@ -96,7 +96,7 @@ public class Lookup
 		Scanner sc = new Scanner(System.in);
 		int inputType;
 
-		System.out.println("Enter input choice: \n1. Coordinates \n2. Temperature \n3. Exit");
+		System.out.println("Enter input choice: \n1. Coordinates \n2. Exit");
 		inputType = sc.nextInt();
 		String input ="";
 		switch(inputType)
