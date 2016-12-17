@@ -85,79 +85,6 @@ public class Lookup
 
 	}
 
-	/*public void LookupWithTemperature(int input)
-	{
-		for (String node : mru.hash.keySet()) 
-		{
-			if(mru.getDataAtCoordinates(node).tempValue == input)
-			{
-				System.out.println("\nObserved at robot:"+mru.getDataAtCoordinates(node));
-				hit++;
-				System.out.println("Cache Hit Rate: "+cacheHitRate()+"%\n");
-				return;
-			}		
-
-		}
-		for (String node : sharedmru.hash.keySet()) 
-		{
-			if(sharedmru.getDataAtCoordinates(node).tempValue == input)
-			{
-				System.out.println("\nShared with robot:"+sharedmru.getDataAtCoordinates(node));
-				hit++;
-				System.out.println("Cache Hit Rate: "+cacheHitRate()+"%\n");
-				return;
-			}
-		}
-		System.out.println("\nNot at this robot, checking at neighbours");
-		int i;
-		for(i = 0; i < neighborPort.size(); i++)
-		{
-			// send request to neighbour
-			Socket s;
-			try 
-			{
-				s = new Socket("localhost", neighborPort.get(i));
-				ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
-				oos.writeInt(2);
-				oos.flush();
-
-				oos.writeInt(input);
-				oos.flush();
-
-				ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
-
-				Data received = null;
-
-				// get data from neighbor
-				while(received == null)
-				{
-					received = (Data) ois.readObject();
-				}
-
-				// close connection
-				oos.close();
-				ois.close();
-				s.close();
-
-				if(received.tempValue != -1)
-				{
-					System.out.println(received);
-					return;
-				}
-
-			} 
-			catch (IOException e) 
-			{
-				e.printStackTrace();
-			} 
-			catch (ClassNotFoundException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		System.out.println("Data not found on any neighbor!");
-	}*/
-
 	public  int cacheHitRate()
 	{
 		return  (int) (( (float)hit / (float)access_count ) *100);
@@ -182,13 +109,7 @@ public class Lookup
 			access_count++;
 			LookupWithCoordinates(input);
 			break;
-		/*case 2:
-			System.out.println("Enter Temperature:");
-			int temp = sc.nextInt(); 
-			access_count++;							
-			LookupWithTemperature(temp);			
-			break;*/
-		case 3:
+		case 2:
 			System.out.println("Exiting from lookup");
 			break;
 		default:
